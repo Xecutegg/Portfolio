@@ -43,7 +43,7 @@ body {
 
 
 .logo {
-    font-size: 5rem;
+    font-size: 3.8rem;
     color: var(--white-color);
     font-weight: 700;
 }
@@ -53,7 +53,7 @@ body {
 }
 
 nav a {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--white-color);
     font-weight: 500;
     margin-left: 3.5rem;
@@ -76,7 +76,7 @@ nav a.active {
     align-items: center;
     justify-content: space-between;
     gap: 5rem;
-    padding: 15rem 0px 0px 10%;
+    padding: 18rem 0px 0px 10%;
 }
 
 .home-detail {
@@ -85,12 +85,12 @@ nav a.active {
 }
 
 .home-detail h1 {
-    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    font-size: clamp(5rem, 11vw, 4.5rem);
 }
 
 .home-detail h2 {
     display: inline-block;
-    font-size: 3.2rem;
+    font-size: 3rem;
     margin-top: -1rem;
 }
 
@@ -98,7 +98,16 @@ nav a.active {
     position: relative;
     display: inline-block;
     color: transparent;
-    -webkit-text-stroke: .07rem var(--main-color);
+    -webkit-text-stroke: 0.07rem var(--main-color);
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i)); 
+}
+
+@keyframes display-text {
+    25%,100% {
+        display: none;
+
+    }
 }
 
 .home-detail h2 span::before {
@@ -109,10 +118,22 @@ nav a.active {
     color: var(--main-color);
     white-space: nowrap;
     overflow: hidden;
+    animation: fill-text 4s linear infinite;
 }
 
+@keyframes fill-text {
+    0%, 10% {
+        width: 0;
+    }
+
+    70%, 90% {
+        width: 100%;
+    }
+}
+
+
 .home-detail p {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin: 1rem 0 2.5rem;
 }
 
@@ -127,7 +148,7 @@ nav a.active {
     background: var(--main-color);
     border-radius: 4rem;
     box-shadow: 0 0 1rem var(--main-color);
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: var(--bg-color);
     font-weight: 500;
     transition: .5s;
@@ -148,7 +169,7 @@ nav a.active {
     padding: .8rem;
     border: .2rem solid var(--main-color);
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 2.6rem;
     color: var(--main-color);
     margin: 0 .8rem;
     transition: .5s;
@@ -163,8 +184,9 @@ nav a.active {
 .home-img {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Aligns the image to the left */
     position: relative;
+    padding-left: 5%; /* Adjust as needed */
 }
 
 .home-img .img-box {
@@ -177,24 +199,13 @@ nav a.active {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-}
-
-.home-img .img-box .img-item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-color);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    overflow: hidden;
+    border: 0.5rem solid var(--main-color); /* Keeps the border */
 }
 
 .home-img .img-box .img-item img {
     position: absolute;
     top: -3rem;
+    left: 0; /* Ensures image shifts to the left */
     display: block;
     width: 92%;
     object-fit: contain;
@@ -204,8 +215,10 @@ nav a.active {
 .heading {
     font-size: 4.5rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 6rem; /* Increase space below */
 }
+
 
 .heading span {
     color: var(--main-color);
@@ -215,10 +228,12 @@ nav a.active {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 2rem;
+    margin: 12rem;
+    margin-top: -2.5rem;
 }
 
 .services-container .services-box {
-    padding: 3rem 2.5rem;
+    padding: 4rem 2.5rem 2rem 2rem;
     background: var(--second-bg-color);
     border: .2rem solid var(--second-bg-color);
     border-radius: 1rem;
@@ -237,7 +252,7 @@ nav a.active {
 }
 
 .services-box .icon i {
-    font-size: 4.5rem;
+    font-size: 3.8rem;
     transition: .5s;
 }
 
@@ -258,7 +273,7 @@ nav a.active {
 }
 
 .services-box .icon a i {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--bg-color);
     transform: rotate(225deg);
 }
@@ -268,7 +283,7 @@ nav a.active {
 }
 
 .services-box h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin: .5rem 0 2rem;
     transition: .5s;
 }
@@ -285,6 +300,7 @@ nav a.active {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 5rem;
+    padding: 0 12rem; /* Adds equal spacing on both sides */
 }
 
 .resume-box h2 {
@@ -451,17 +467,23 @@ nav a.active {
 
 .portfolio-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+    padding: 0 12rem; /* Adds equal spacing on both left and right */
 }
 
+.portfolio-carousel .img-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 .portfolio-detail {
     display: none;
 }
-
 .portfolio-detail.active {
     display: block;
 }
+
 
 .portfolio-box .numb {
     font-size: 8rem;
@@ -563,8 +585,19 @@ nav a.active {
 }
 
 .portfolio-box .navigation {
-    text-align: right;
-    margin-top: 2rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 0px; /* Keeps the arrows close */
+    flex-wrap: wrap; /* Ensures responsiveness */
+    
+    padding: 2rem 5rem; /* Adds spacing: Top = 2rem, Left-Right = 5rem */
+    margin-top: 2rem; /* Extra spacing from top */
+}
+
+.portfolio-box .navigation a {
+    padding: 8px; /* Adds some touch area for better UX */
+    font-size: 1.2rem;
 }
 
 .portfolio-box .navigation button {
@@ -579,16 +612,20 @@ nav a.active {
 }
 
 .portfolio-box .navigation .arrow-right {
-    margin-left: 10rem;
-
+    margin-left: 2rem; /* Adjusted to reduce the space between arrows */
 }
+
 
 
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: 3rem;
+    gap: 3rem; /* Prevents excessive stretching */
+    margin: 5rem auto; /* Adds top & bottom spacing and centers horizontally */
+    padding: 0 12rem; /* Equal left and right space */
+    border-radius: 10px; /* Optional: Adds rounded corners */
 }
+
 
 .contact-container .contact-box:first-child {
     align-self: center;
@@ -597,6 +634,13 @@ nav a.active {
 
 .contact-box h2 {
     font-size: 4.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-box h2 .heading {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 10px;
 }
 
 .contact-box p {
@@ -669,3 +713,128 @@ nav a.active {
     margin-top: 2rem ;
     cursor: pointer;
 }
+
+
+/* 
+for mobile devices */
+
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+  header {
+    padding: 2rem 4%;
+  }
+
+  section {
+    padding: 10rem 4% 2rem;
+  }
+}
+
+@media screen and (max-width: 810px) {
+    .contact-box .field-box {
+        grid-template-columns: 1fr;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    nav {
+        position: absolute; 
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0,.2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0,.2);
+        text-align: center;
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        margin: 4rem 0;
+
+    }
+
+    .home {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem ;
+    }
+
+    .home-img .img-box {
+        width: 35rem;
+        height: 35rem;
+    }
+
+    .resume-container,
+    .portfolio-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-container {
+        gap: 3rem;
+    }
+
+    .portfolio-container .portfolio-box:first-child {
+        order: 1;
+    }
+    
+    .contact-box .field-box {
+        grid-template-columns: repeat(2, 1fr);
+    }   
+    
+  }
+
+  @media screen and (max-width: 600px) {
+    .home-img .img-box {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .contact-box .field-box {
+        grid-template-columns: 1fr;
+    }
+
+  }
+
+  @media screen and (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .home-detail,
+    .resume-box h2,
+    .resume-box .heading,
+    .resume-box .desc,
+    .resume-detail.about .resume-item {
+        text-align: center;
+    }
+
+    .home-detail .btn-sci {
+        flex-direction: column;
+    }
+
+    .home-detail .btn-sci .sci {
+        margin-left: 0;
+        margin-bottom: 2rem;
+        
+    }
+  }
+
