@@ -69,3 +69,66 @@ arrowLeft.addEventListener('click', () => {
 
 // Initialize first active state
 updatePortfolio();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-box form");
+    const webhookURL = "https://discord.com/api/webhooks/1350712867363618919/wxj3nNC0RklsHEsDsBXFEP9n9-D_r15x6j_YEBRVN8Y1ULQRPDJvzgvGESHyH6ZS9Lbr"; // Replace with your Discord Webhook URL
+    
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent actual form submission
+        
+        const name = form.querySelector("input[type='text']").value.trim();
+        const email = form.querySelector("input[type='email']").value.trim();
+        const phone = form.querySelector("input[placeholder='Phone No']").value.trim();
+        const subject = form.querySelector("input[placeholder='Email Subject']").value.trim();
+        const message = form.querySelector("textarea").value.trim();
+        
+        if (!name || !email || !phone || !subject || !message) {
+            alert("⚠️ Please fill in all fields before submitting.");
+            return;
+        }
+        
+        if (!validateEmail(email)) {
+            alert("✉️ Please enter a valid email address.");
+            return;
+        }
+        
+        if (!validatePhone(phone)) {
+            alert("📞 Please enter a valid phone number.");
+            return;
+        }
+        
+        const payload = {
+            content: `📩 **New Contact Form Submission** 📩\n\n🔹 **Name:** ${name}\n🔹 **Email:** ${email}\n🔹 **Phone:** ${phone}\n🔹 **Subject:** ${subject}\n🔹 **Message:**\n${message}`
+        };
+        
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("✅ Your message has been sent successfully! We will get back to you soon. 🎉");
+                form.reset(); // Reset form fields after submission
+            } else {
+                alert("❌ Failed to send message. Please try again later.");
+            }
+        })
+        .catch(error => {
+            console.error("Error sending message:", error);
+            alert("⚠️ An error occurred. Please try again.");
+        });
+    });
+    
+    function validateEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+    
+    function validatePhone(phone) {
+        const phonePattern = /^\+?[0-9]{10,15}$/;
+        return phonePattern.test(phone);
+    }
+});
+

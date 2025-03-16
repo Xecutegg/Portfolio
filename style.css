@@ -412,6 +412,10 @@ home-img .img-box .img-item img {
     border-radius: 50%;
     margin-left: -2rem;
 }
+.resume-detail span{
+    color: var(--main-color);
+
+}
 
 .resume-detail.skills .resume-list {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -659,8 +663,13 @@ home-img .img-box .img-item img {
 .contact-box h2 {
     font-size: 4.5rem;
     margin: 0;
-    padding: 0;
+    padding: 0px 0px 20px 0px;
 }
+
+.contact-box span {
+    color: var(--main-color);
+}
+
 
 .contact-box h2 .heading {
     margin: 0px 0px 0px 0px;
@@ -911,6 +920,12 @@ home-img .img-box .img-item img {
     .contact-container .contact-box h2 {
         font-size: 3rem;
         margin-top: -10rem;
+    }
+
+    .contact-container .contact-box .heading {
+        font-size: 3rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
 
     .contact-detail i {
