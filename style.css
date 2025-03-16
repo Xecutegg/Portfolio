@@ -20,15 +20,16 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--white-color);
-    
+
 }
 
- header {
+header {
     position: fixed;
     top: 0;
     left: 0;
@@ -68,7 +69,7 @@ nav a.active {
 #menu-icon {
     font-size: 4rem;
     display: none;
-} 
+}
 
 
 .home {
@@ -100,11 +101,13 @@ nav a.active {
     color: transparent;
     -webkit-text-stroke: 0.07rem var(--main-color);
     animation: display-text 16s linear infinite;
-    animation-delay: calc(-4s * var(--i)); 
+    animation-delay: calc(-4s * var(--i));
 }
 
 @keyframes display-text {
-    25%,100% {
+
+    25%,
+    100% {
         display: none;
 
     }
@@ -122,11 +125,14 @@ nav a.active {
 }
 
 @keyframes fill-text {
-    0%, 10% {
+
+    0%,
+    10% {
         width: 0;
     }
 
-    70%, 90% {
+    70%,
+    90% {
         width: 100%;
     }
 }
@@ -184,9 +190,11 @@ nav a.active {
 .home-img {
     flex: 1;
     display: flex;
-    justify-content: flex-start; /* Aligns the image to the left */
+    justify-content: flex-start;
+    /* Aligns the image to the left */
     position: relative;
-    padding-left: 5%; /* Adjust as needed */
+    padding-left: 5%;
+    /* Adjust as needed */
 }
 
 .home-img .img-box {
@@ -199,7 +207,8 @@ nav a.active {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border: 0.5rem solid var(--main-color); /* Keeps the border */
+    border: 0.5rem solid var(--main-color);
+    /* Keeps the border */
 }
 
 home-img .img-box .img-item img {
@@ -216,7 +225,8 @@ home-img .img-box .img-item img {
     font-size: 4.5rem;
     text-align: center;
     margin-top: 5rem;
-    margin-bottom: 6rem; /* Increase space below */
+    margin-bottom: 6rem;
+    /* Increase space below */
 }
 
 
@@ -300,7 +310,8 @@ home-img .img-box .img-item img {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 5rem;
-    padding: 0 8rem; /* Adds equal spacing on both sides */
+    padding: 0 8rem;
+    /* Adds equal spacing on both sides */
 }
 
 .resume-box h2 {
@@ -470,16 +481,19 @@ home-img .img-box .img-item img {
     grid-template-columns: 1fr 1.2fr;
     gap: 6rem;
     align-items: center;
-    padding: 0 9rem; /* Adds equal spacing on both left and right */
+    padding: 0 9rem;
+    /* Adds equal spacing on both left and right */
 }
 
 .portfolio-carousel .img-slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
+
 .portfolio-detail {
     display: none;
 }
+
 .portfolio-detail.active {
     display: block;
 }
@@ -588,15 +602,20 @@ home-img .img-box .img-item img {
     display: flex;
     justify-content: right;
     align-items: center;
-    gap: 0px; /* Keeps the arrows close */
-    flex-wrap: wrap; /* Ensures responsiveness */
-    
-    padding: 2rem 5rem; /* Adds spacing: Top = 2rem, Left-Right = 5rem */
-    margin-top: 2rem; /* Extra spacing from top */
+    gap: 0px;
+    /* Keeps the arrows close */
+    flex-wrap: wrap;
+    /* Ensures responsiveness */
+
+    padding: 2rem 5rem;
+    /* Adds spacing: Top = 2rem, Left-Right = 5rem */
+    margin-top: 2rem;
+    /* Extra spacing from top */
 }
 
 .portfolio-box .navigation a {
-    padding: 8px; /* Adds some touch area for better UX */
+    padding: 8px;
+    /* Adds some touch area for better UX */
     font-size: 1.2rem;
 }
 
@@ -612,7 +631,8 @@ home-img .img-box .img-item img {
 }
 
 .portfolio-box .navigation .arrow-right {
-    margin-left: 2rem; /* Adjusted to reduce the space between arrows */
+    margin-left: 2rem;
+    /* Adjusted to reduce the space between arrows */
 }
 
 
@@ -620,10 +640,14 @@ home-img .img-box .img-item img {
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: 3rem; /* Prevents excessive stretching */
-    margin: 5rem auto; /* Adds top & bottom spacing and centers horizontally */
-    padding: 0 9rem; /* Equal left and right space */
-    border-radius: 10px; /* Optional: Adds rounded corners */
+    gap: 3rem;
+    /* Prevents excessive stretching */
+    margin: 5rem auto;
+    /* Adds top & bottom spacing and centers horizontally */
+    padding: 0 9rem;
+    /* Equal left and right space */
+    border-radius: 10px;
+    /* Optional: Adds rounded corners */
 }
 
 
@@ -710,7 +734,7 @@ home-img .img-box .img-item img {
 }
 
 .contact-box .btn {
-    margin-top: 2rem ;
+    margin-top: 2rem;
     cursor: pointer;
 }
 
@@ -839,7 +863,7 @@ home-img .img-box .img-item img {
         height: 80%;
         min-width: unset;
         top: 0;
-        padding-right: 1rem; 
+        padding-right: 1rem;
     }
 
     .portfolio-carousel {
@@ -888,6 +912,7 @@ home-img .img-box .img-item img {
         font-size: 3rem;
         margin-top: -10rem;
     }
+
     .contact-detail i {
         margin-right: 1.5rem !important;
         margin-bottom: 0 !important;
