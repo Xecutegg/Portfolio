@@ -23,10 +23,26 @@ html {
     scroll-behavior: smooth;
 }
 
+html:has(.reveal:hover) .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--white-color);
+    animation: fadeIn 1s ease-in-out forwards;
 
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 header {
