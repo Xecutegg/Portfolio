@@ -10,17 +10,12 @@ const Footer = () => {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
   const services = [
-    'Web Development',
-    'UI/UX Design',
-    'Graphic Design',
-    'Tournament Management',
-    'Discord Management',
-    'Video Editing',
+    'Full Stack Developer',
+    'Discord Bot Developer',
   ];
 
   const socialLinks = [

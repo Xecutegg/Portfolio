@@ -40,7 +40,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      const webhookURL = "https://discord.com/api/webhooks/1350712867363618919/wxj3nNC0RklsHEsDsBXFEP9n9-D_r15x6j_YEBRVN8Y1ULQRPDJvzgvGESHyH6ZS9Lbr";
+      const webhookURL = "https://discord.com/api/webhooks/1389889919782223974/blL7L9ubnBEpsK_ca49o9K23kVOMyndWql8iUIxmW48MsrUZXeek52utjeglVc5tVhjN";
       
       const payload = {
         content: `📩 **New Contact Form Submission** 📩\n\n🔹 **Name:** ${data.name}\n🔹 **Email:** ${data.email}\n🔹 **Phone:** ${data.phone}\n🔹 **Subject:** ${data.subject}\n🔹 **Message:**\n${data.message}`
