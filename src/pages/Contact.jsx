@@ -16,21 +16,15 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: Phone,
-      title: 'Phone',
-      value: '+91 9064774963',
-      href: 'tel:+919064774963',
-    },
-    {
       icon: Mail,
       title: 'Email',
-      value: 'Founder@xecute.me',
-      href: 'mailto:Founder@xecute.me',
+      value: 'soumagoswami2002@gmail.com',
+      href: 'mailto:soumagoswami2002@gmail.com',
     },
     {
       icon: MapPin,
       title: 'Address',
-      value: 'Kolkata/Midnapore, India',
+      value: 'West Bangal, India',
       href: '#',
     },
   ];
@@ -40,7 +34,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      const webhookURL = "https://discord.com/api/webhooks/1389889919782223974/blL7L9ubnBEpsK_ca49o9K23kVOMyndWql8iUIxmW48MsrUZXeek52utjeglVc5tVhjN";
+      const webhookURL = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
       
       const payload = {
         content: `📩 **New Contact Form Submission** 📩\n\n🔹 **Name:** ${data.name}\n🔹 **Email:** ${data.email}\n🔹 **Phone:** ${data.phone}\n🔹 **Subject:** ${data.subject}\n🔹 **Message:**\n${data.message}`
@@ -92,7 +86,7 @@ const Contact = () => {
 
   return (
     <section className="min-h-screen pt-24 pb-12">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 mt-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -101,7 +95,7 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's Work <span className="text-green-400">Together</span>
+            Let's Work <span className="text-blue-400">Together</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Let's collaborate! I bring expertise in web development, esports management, and design. 
@@ -119,7 +113,7 @@ const Contact = () => {
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Get in <span className="text-green-400">Touch</span>
+                Get in <span className="text-blue-400">Touch</span>
               </h2>
               <p className="text-gray-400 mb-8">
                 Ready to start your project? Have a question? I'd love to hear from you. 
@@ -132,9 +126,9 @@ const Contact = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg border border-slate-700 hover:border-green-400 transition-colors duration-200"
+                  className="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-400 transition-colors duration-200"
                 >
-                  <div className="p-3 bg-green-400 text-slate-900 rounded-full">
+                  <div className="p-3 bg-blue-400 text-slate-900 rounded-full">
                     <info.icon size={20} />
                   </div>
                   <div>
@@ -144,7 +138,7 @@ const Contact = () => {
                     ) : (
                       <a
                         href={info.href}
-                        className="text-gray-400 hover:text-green-400 transition-colors duration-200"
+                        className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
                       >
                         {info.value}
                       </a>
@@ -157,24 +151,24 @@ const Contact = () => {
             {/* Additional Info */}
             <motion.div
               variants={itemVariants}
-              className="bg-gradient-to-r from-green-400/10 to-blue-400/10 p-6 rounded-xl border border-green-400/20"
+              className="bg-gradient-to-r from-blue-400/10 to-cyan-400/10 p-6 rounded-xl border border-blue-400/20"
             >
               <h3 className="text-lg font-semibold mb-3">Why Choose Me?</h3>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center">
-                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <CheckCircle size={16} className="text-blue-400 mr-2 flex-shrink-0" />
                   Fast response time (usually within 24 hours)
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <CheckCircle size={16} className="text-blue-400 mr-2 flex-shrink-0" />
                   High-quality work with attention to detail
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <CheckCircle size={16} className="text-blue-400 mr-2 flex-shrink-0" />
                   Ongoing support and maintenance
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <CheckCircle size={16} className="text-blue-400 mr-2 flex-shrink-0" />
                   Competitive pricing and flexible packages
                 </li>
               </ul>
@@ -185,7 +179,7 @@ const Contact = () => {
           <motion.div variants={itemVariants}>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Contact <span className="text-green-400">Me!</span>
+                Contact <span className="text-blue-400">Me!</span>
               </h2>
 
               {/* Form Fields */}
@@ -195,8 +189,8 @@ const Contact = () => {
                     type="text"
                     placeholder="Full Name"
                     {...register('name', { required: 'Name is required' })}
-                    className={`w-full px-4 py-3 bg-slate-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200 ${
-                      errors.name ? 'border-red-400' : 'border-slate-700'
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 ${
+                      errors.name ? 'border-red-400' : 'border-gray-700'
                     }`}
                   />
                   {errors.name && (
@@ -215,8 +209,8 @@ const Contact = () => {
                         message: 'Invalid email address',
                       },
                     })}
-                    className={`w-full px-4 py-3 bg-slate-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200 ${
-                      errors.email ? 'border-red-400' : 'border-slate-700'
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 ${
+                      errors.email ? 'border-red-400' : 'border-gray-700'
                     }`}
                   />
                   {errors.email && (
@@ -231,8 +225,8 @@ const Contact = () => {
                     type="tel"
                     placeholder="Phone Number"
                     {...register('phone', { required: 'Phone number is required' })}
-                    className={`w-full px-4 py-3 bg-slate-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200 ${
-                      errors.phone ? 'border-red-400' : 'border-slate-700'
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 ${
+                      errors.phone ? 'border-red-400' : 'border-gray-700'
                     }`}
                   />
                   {errors.phone && (
@@ -245,8 +239,8 @@ const Contact = () => {
                     type="text"
                     placeholder="Email Subject"
                     {...register('subject', { required: 'Subject is required' })}
-                    className={`w-full px-4 py-3 bg-slate-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200 ${
-                      errors.subject ? 'border-red-400' : 'border-slate-700'
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 ${
+                      errors.subject ? 'border-red-400' : 'border-gray-700'
                     }`}
                   />
                   {errors.subject && (
@@ -260,8 +254,8 @@ const Contact = () => {
                   rows={6}
                   placeholder="Your Message"
                   {...register('message', { required: 'Message is required' })}
-                  className={`w-full px-4 py-3 bg-slate-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200 resize-none ${
-                    errors.message ? 'border-red-400' : 'border-slate-700'
+                  className={`w-full px-4 py-3 bg-gray-800 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 resize-none ${
+                    errors.message ? 'border-red-400' : 'border-gray-700'
                   }`}
                 />
                 {errors.message && (
@@ -278,7 +272,7 @@ const Contact = () => {
                 className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center space-x-2 ${
                   isSubmitting
                     ? 'bg-gray-600 cursor-not-allowed'
-                    : 'bg-green-400 hover:bg-green-300 text-slate-900'
+                    : 'bg-blue-400 hover:bg-blue-300 text-slate-900'
                 }`}
               >
                 {isSubmitting ? (
@@ -301,7 +295,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className={`p-4 rounded-lg flex items-center space-x-2 ${
                     submitStatus === 'success'
-                      ? 'bg-green-400/10 border border-green-400/20 text-green-400'
+                      ? 'bg-blue-400/10 border border-blue-400/20 text-blue-400'
                       : 'bg-red-400/10 border border-red-400/20 text-red-400'
                   }`}
                 >

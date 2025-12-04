@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 @import "tailwindcss";
 
 @layer base {
@@ -6,24 +8,26 @@
   }
   
   body {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
   }
 }
 
 @layer components {
   /* Custom components can be added here */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-green-400 text-slate-900 font-semibold rounded-full hover:bg-green-300 transition-all duration-200;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-blue-400 text-slate-900 font-semibold rounded-full hover:bg-blue-300 transition-all duration-200;
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-green-400 text-green-400 font-semibold rounded-full hover:bg-green-400 hover:text-slate-900 transition-all duration-200;
+    @apply inline-flex items-center justify-center px-6 py-3 border border-blue-400 text-blue-400 font-semibold rounded-full hover:bg-blue-400 hover:text-slate-900 transition-all duration-200;
   }
 }
 
 @layer utilities {
   /* Custom utilities can be added here */
   .text-gradient {
-    @apply bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent;
   }
 }

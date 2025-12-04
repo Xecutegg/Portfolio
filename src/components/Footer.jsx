@@ -26,18 +26,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-slate-800 border-t border-slate-700">
+    <footer className="bg-gradient-to-b from-gray-900 to-gray-950 border-t border-gray-800">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
               <div className="text-2xl font-bold">
-                Xecute<span className="text-green-400">.Me</span>
+                Xecute<span className="text-blue-400">.Me</span>
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Passionate web developer, esports organizer, and creative designer. 
+              Passionate web developer, esports organizer, and creative designer.
               Building digital experiences and managing gaming communities with innovation.
             </p>
             <div className="flex space-x-3">
@@ -49,7 +49,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2 rounded-full bg-slate-700 hover:bg-green-400 hover:text-slate-900 transition-all duration-200"
+                  className="p-2 rounded-full bg-gray-700 hover:bg-blue-400 hover:text-slate-900 transition-all duration-200"
                   aria-label={link.label}
                 >
                   <link.icon size={18} />
@@ -66,7 +66,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 hover:text-green-400 transition-colors duration-200 text-sm"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -92,33 +92,24 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white">Get in Touch</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-400 text-sm">
-                <Mail size={16} className="text-green-400" />
-                <a 
+                <Mail size={16} className="text-blue-400" />
+                <a
                   href="mailto:Founder@xecute.me"
-                  className="hover:text-green-400 transition-colors duration-200"
+                  className="hover:text-blue-400 transition-colors duration-200"
                 >
-                  Founder@xecute.me
+                  soumagoswami2002@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-3 text-gray-400 text-sm">
-                <Phone size={16} className="text-green-400" />
-                <a 
-                  href="tel:+919064774963"
-                  className="hover:text-green-400 transition-colors duration-200"
-                >
-                  +91 9064774963
-                </a>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400 text-sm">
-                <MapPin size={16} className="text-green-400" />
-                <span>Kolkata/Midnapore, India</span>
+                <MapPin size={16} className="text-blue-400" />
+                <span>West Bangal, India</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-slate-700 mt-8 pt-8">
+        <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               © {currentYear} Xecute.Me. All rights reserved.

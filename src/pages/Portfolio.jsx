@@ -9,28 +9,40 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
+      title: 'One Dream Esports',
+      description: 'A modern esports platform for BGMI tournaments, scrims, and community management.',
+      longDescription: 'One Dream Esports is a full-fledged competitive gaming platform built with a focus on clean UI, responsive layouts, and smooth user experience. This project showcases my front-end development skills using HTML, CSS, JavaScript, and modern styling techniques. The website hosts BGMI tournaments, provides team registrations, scrims updates, event information, and acts as the official hub for the One Dream Esports community.',
+      image: '/image copy.png',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Tailwind'],
+      liveUrl: 'https://onedreamesports.in',
+      category: 'Web Development',
+      featured: true,
+    },
+
+    {
+      id: 2,
       title: 'SecureX',
       description: 'A comprehensive esports platform for tournament management and community engagement.',
       longDescription: 'This is my first major frontend project showcasing my skills in HTML5, CSS3, and JavaScript. The website features responsive design, interactive elements, and modern UI components. It serves as the official platform for One Dream Esports tournaments and community activities.',
       image: '/securex.png',
       technologies: ['React', 'Tailwind', 'JavaScript', 'MongoDB'],
-      liveUrl: 'https://securexbot.xyz',
+      liveUrl: 'https://securexbot.in',
       category: 'Web Development',
       featured: true,
     },
     {
-      id: 2,
+      id: 3,
       title: 'EliteQ',
       description: 'An exciting new project currently in development. Stay tuned for more details.',
       longDescription: 'This upcoming project will showcase advanced web development techniques and modern design principles. Currently in the planning and development phase, it promises to deliver exceptional user experience and cutting-edge functionality.',
-      image: '/eliteq.png',
-      technologies: ['React', 'Tailwind', 'Javascript', 'PostgreSQL', 'Python'],
-      liveUrl: 'https://eliteq.xyz',
+      image: '/image.png',
+      technologies: ['React', 'Tailwind', 'Javascript', 'MongoDB'],
+      liveUrl: 'https://eliteqbot.in',
       category: 'Web Development',
       featured: false,
     },
     {
-      id: 3,
+      id: 4,
       title: 'SecureX Bot Design',
       description: 'A comprehensive design system for consistent UI across products.',
       longDescription: 'Created a scalable design system with reusable components, typography scales, and color systems. Implemented with Storybook for documentation and collaboration between designers and developers.',
@@ -41,7 +53,7 @@ const Portfolio = () => {
       featured: true,
     },
     {
-      id: 4,
+      id: 5,
       title: 'EliteQ Bot Design',
       description: 'A comprehensive design system for consistent UI across products.',
       longDescription: 'Created a scalable design system with reusable components, typography scales, and color systems. Implemented with Storybook for documentation and collaboration between designers and developers.',
@@ -55,8 +67,8 @@ const Portfolio = () => {
 
   const categories = ['All', 'Web Development', 'Design'];
 
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
+  const filteredProjects = activeCategory === 'All'
+    ? projects
     : projects.filter(project => project.category === activeCategory);
 
   const nextProject = () => {
@@ -92,7 +104,7 @@ const Portfolio = () => {
 
   return (
     <section className="min-h-screen pt-16 md:pt-24 pb-12 px-4 sm:px-6">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-7xl mt-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -101,7 +113,7 @@ const Portfolio = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4">
-            My <span className="text-green-400">Portfolio</span>
+            My <span className="text-blue-400">Portfolio</span>
           </h1>
           <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Explore my portfolio showcasing web development projects, creative designs, and innovative solutions.
@@ -109,7 +121,7 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Category Filters */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -122,11 +134,10 @@ const Portfolio = () => {
                 setActiveCategory(category);
                 setCurrentProject(0);
               }}
-              className={`px-4 py-2 text-sm md:text-base rounded-full transition-all duration-200 ${
-                activeCategory === category
-                  ? 'bg-green-400 text-slate-900 font-medium'
-                  : 'bg-slate-800 text-gray-300 hover:bg-slate-700'
-              }`}
+              className={`px-4 py-2 text-sm md:text-base rounded-full transition-all duration-200 ${activeCategory === category
+                  ? 'bg-blue-400 text-slate-900 font-medium'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
             >
               {category}
             </button>
@@ -153,15 +164,15 @@ const Portfolio = () => {
                   className="space-y-4 md:space-y-6"
                 >
                   <div className="flex items-center space-x-3 md:space-x-4">
-                    <span className="text-green-400 text-base md:text-lg font-bold">
+                    <span className="text-blue-400 text-base md:text-lg font-bold">
                       {String(filteredProjects[currentProject].id).padStart(2, '0')}
                     </span>
-                    <div className="h-px bg-green-400 flex-1" />
-                    <span className="text-xs md:text-sm text-gray-400 bg-slate-800 px-2 md:px-3 py-1 rounded-full">
+                    <div className="h-px bg-blue-400 flex-1" />
+                    <span className="text-xs md:text-sm text-gray-400 bg-gray-800 px-2 md:px-3 py-1 rounded-full">
                       {filteredProjects[currentProject].category}
                     </span>
                     {filteredProjects[currentProject].featured && (
-                      <span className="text-xs md:text-sm bg-green-400 text-slate-900 px-2 md:px-3 py-1 rounded-full font-medium">
+                      <span className="text-xs md:text-sm bg-blue-400 text-slate-900 px-2 md:px-3 py-1 rounded-full font-medium">
                         Featured
                       </span>
                     )}
@@ -176,12 +187,12 @@ const Portfolio = () => {
                   </p>
 
                   <div className="space-y-3 md:space-y-4">
-                    <h3 className="text-base md:text-lg font-semibold text-green-400">Technologies Used:</h3>
+                    <h3 className="text-base md:text-lg font-semibold text-blue-400">Technologies Used:</h3>
                     <div className="flex flex-wrap gap-2">
                       {filteredProjects[currentProject].technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-2 md:px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs md:text-sm"
+                          className="px-2 md:px-3 py-1 bg-gray-800 border border-gray-700 rounded-full text-xs md:text-sm"
                         >
                           {tech}
                         </span>
@@ -196,7 +207,7 @@ const Portfolio = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-400 text-slate-900 font-medium rounded-full hover:bg-green-300 transition-colors duration-200 group"
+                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-blue-400 text-slate-900 font-medium rounded-full hover:bg-blue-300 transition-colors duration-200 group"
                     >
                       <Eye size={16} className="mr-2" />
                       Live Preview
@@ -208,11 +219,11 @@ const Portfolio = () => {
             </motion.div>
 
             {/* Project Image Carousel */}
-            <motion.div 
-              variants={itemVariants} 
+            <motion.div
+              variants={itemVariants}
               className="relative order-1 lg:order-2 h-64 sm:h-80 md:h-96 lg:h-auto"
             >
-              <div className="relative h-full overflow-hidden rounded-xl bg-slate-800 border border-slate-700">
+              <div className="relative h-full overflow-hidden rounded-xl bg-gray-800 border border-gray-700">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={filteredProjects[currentProject].id}
@@ -258,9 +269,8 @@ const Portfolio = () => {
                       <button
                         key={index}
                         onClick={() => setCurrentProject(index)}
-                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
-                          index === currentProject ? 'bg-green-400' : 'bg-white/30'
-                        }`}
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${index === currentProject ? 'bg-blue-400' : 'bg-white/30'
+                          }`}
                         aria-label={`Go to project ${index + 1}`}
                       />
                     ))}
@@ -273,7 +283,7 @@ const Portfolio = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-12 md:py-16 bg-slate-800 rounded-xl border border-slate-700"
+            className="text-center py-12 md:py-16 bg-gray-800 rounded-xl border border-gray-700"
           >
             <h3 className="text-xl md:text-2xl font-medium text-gray-300 mb-2">
               No projects found in this category
@@ -293,7 +303,7 @@ const Portfolio = () => {
             className="space-y-6 md:space-y-8"
           >
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">
-              More <span className="text-green-400">Projects</span>
+              More <span className="text-blue-400">Projects</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -304,9 +314,8 @@ const Portfolio = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className={`bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-green-400 transition-all duration-300 group cursor-pointer ${
-                    currentProject === index ? 'ring-2 ring-green-400' : ''
-                  }`}
+                  className={`bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-blue-400 transition-all duration-300 group cursor-pointer ${currentProject === index ? 'ring-2 ring-blue-400' : ''
+                    }`}
                   onClick={() => setCurrentProject(index)}
                 >
                   <div className="aspect-video overflow-hidden relative">
@@ -323,16 +332,16 @@ const Portfolio = () => {
                   </div>
                   <div className="p-4 md:p-6">
                     <div className="flex items-center justify-between mb-2 md:mb-3">
-                      <span className="text-green-400 text-xs md:text-sm font-medium">
+                      <span className="text-blue-400 text-xs md:text-sm font-medium">
                         {project.category}
                       </span>
                       {project.featured && (
-                        <span className="px-2 py-1 bg-green-400 text-slate-900 text-xs font-bold rounded-full">
+                        <span className="px-2 py-1 bg-blue-400 text-slate-900 text-xs font-bold rounded-full">
                           Featured
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2 group-hover:text-green-400 transition-colors duration-200">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2 group-hover:text-blue-400 transition-colors duration-200">
                       {project.title}
                     </h3>
                     <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
@@ -342,13 +351,13 @@ const Portfolio = () => {
                       {project.technologies.slice(0, 3).map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-0.5 bg-slate-700 text-xs rounded-full"
+                          className="px-2 py-0.5 bg-gray-700 text-xs rounded-full"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="px-2 py-0.5 bg-slate-700 text-xs rounded-full">
+                        <span className="px-2 py-0.5 bg-gray-700 text-xs rounded-full">
                           +{project.technologies.length - 3}
                         </span>
                       )}

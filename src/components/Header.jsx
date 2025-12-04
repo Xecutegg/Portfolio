@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Github, Linkedin, Instagram, MessageCircle } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Instagram, MessageCircle, User, Home, Briefcase, FolderOpen, Mail } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,11 +9,11 @@ const Header = () => {
   const location = useLocation();
 
   const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '/', icon: <Home className="w-4 h-4" /> },
+    { name: 'About', path: '/about', icon: <User className="w-4 h-4" /> },
+    { name: 'Services', path: '/services', icon: <Briefcase className="w-4 h-4" /> },
+    { name: 'Portfolio', path: '/portfolio', icon: <FolderOpen className="w-4 h-4" /> },
+    { name: 'Contact', path: '/contact', icon: <Mail className="w-4 h-4" /> },
   ];
 
   const socialLinks = [
@@ -25,133 +25,179 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.menu-button')) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-slate-900/20 backdrop-blur-sm'
-      }`}
-    >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl md:text-3xl font-bold"
-            >
-              Xecute<span className="text-green-400">.Me</span>
-            </motion.div>
+    <>
+      <header
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-200 
+          ${scrolled ? 'backdrop-blur-lg bg-gray-800/70 border border-gray-700 shadow-xl' : 'bg-gray-900/50 border border-gray-800'}
+          rounded-full w-[83vw] h-16 flex items-center justify-between px-6`}
+      >
+        {/* Logo */}
+        <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <Link 
+            to="/" 
+            className="flex items-center group transition-transform duration-150 hover:scale-103" // Reduced from 200 and 105
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <img 
+              src="logo.png" 
+              alt="Souma Goswami" 
+              className="w-10 h-10 sm:w-11 sm:h-11 object-cover rounded-full border-2 border-blue-500/50 shadow-lg"
+            />
+            <div className="ml-2 sm:ml-3">
+              <h1 className="text-base sm:text-lg font-bold text-white group-hover:text-blue-400 transition-colors duration-150"> 
+                Souma Goswami
+              </h1>
+              <p className="text-[10px] sm:text-xs text-blue-400 font-medium leading-none">
+                Full Stack Developer
+              </p>
+            </div>
           </Link>
+        </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-8">
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center flex-1 justify-center mx-8">
+          <nav className="flex space-x-1">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-green-400 ${
-                  location.pathname === item.path ? 'text-green-400' : 'text-white'
+                className={`flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors duration-150 ${
+                  location.pathname === item.path 
+                    ? 'text-white bg-blue-500/20 border border-blue-500/30' 
+                    : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
                 }`}
               >
                 {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-400"
-                  />
-                )}
               </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Desktop Social Links & Mobile Menu Button */}
+        <div className="flex items-center space-x-3 sm:space-x-4">
+          {/* Social Links - Desktop */}
+          <div className="hidden md:flex items-center space-x-2">
+            {socialLinks.map((link) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }} // Reduced from 1.1
+                whileTap={{ scale: 0.98 }} // Reduced from 0.95
+                className="p-2 rounded-full border border-gray-700 hover:border-blue-400 hover:text-blue-400 transition-colors duration-150" // Reduced from 200
+                aria-label={link.label}
+              >
+                <link.icon size={18} />
+              </motion.a>
             ))}
           </div>
 
-          {/* Social Links & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            {/* Social Links - Hidden on mobile */}
-            <div className="hidden md:flex items-center space-x-3">
-              {socialLinks.map((link) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-2 rounded-full border border-gray-600 hover:border-green-400 hover:text-green-400 transition-colors duration-200"
-                  aria-label={link.label}
-                >
-                  <link.icon size={18} />
-                </motion.a>
-              ))}
-            </div>
+          {/* Desktop Contact Button */}
+          <Link
+            to="/contact"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 transition-all duration-150 shadow-lg hover:shadow-blue-500/20 transform hover:scale-102" // Reduced duration and scale
+          >
+            Hire Me
+          </Link>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="lg:hidden p-2 rounded-md hover:bg-gray-800 transition-colors duration-200"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className={`menu-button inline-flex items-center justify-center p-2 rounded-lg md:hidden ${
+              isMenuOpen
+                ? 'bg-blue-600 text-white'
+                : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+            } transition-all duration-150`} // Reduced from 200
+            aria-expanded={isMenuOpen}
+          >
+            {!isMenuOpen ? <Menu className="h-5 w-5" /> : <X className="h-5 w-5" />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         <motion.div
           initial={false}
           animate={{
             height: isMenuOpen ? 'auto' : 0,
             opacity: isMenuOpen ? 1 : 0,
           }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="lg:hidden overflow-hidden"
+          transition={{ duration: 0.15, ease: 'easeInOut' }} // Reduced from 0.2
+          className="mobile-menu absolute top-full right-0 mt-3 w-64 bg-gray-800 rounded-2xl shadow-2xl overflow-hidden z-50 border border-gray-700/50 backdrop-blur-sm md:hidden"
         >
-          <div className="py-4 space-y-2">
+          <div className="py-3">
+            {/* Navigation Links */}
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 hover:bg-gray-800 hover:text-green-400 ${
-                  location.pathname === item.path ? 'text-green-400 bg-gray-800' : 'text-white'
+                className={`flex items-center space-x-3 px-4 py-3 text-sm transition-all duration-150 ${
+                  location.pathname === item.path 
+                    ? 'text-blue-400 bg-blue-600/20 border-r-2 border-blue-400' 
+                    : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
                 }`}
+                onClick={() => setIsMenuOpen(false)}
               >
-                {item.name}
+                {item.icon}
+                <span>{item.name}</span>
               </Link>
             ))}
             
             {/* Mobile Social Links */}
-            <div className="flex items-center justify-center space-x-4 pt-4 border-t border-gray-700">
+            <div className="border-t border-gray-700/50 my-2 mx-4"></div>
+            <div className="flex items-center justify-center space-x-4 py-3">
               {socialLinks.map((link) => (
                 <motion.a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-2 rounded-full border border-gray-600 hover:border-green-400 hover:text-green-400 transition-colors duration-200"
+                  whileHover={{ scale: 1.05 }} // Reduced from 1.1
+                  whileTap={{ scale: 0.98 }} // Reduced from 0.95
+                  className="p-2 rounded-full border border-gray-600 hover:border-blue-400 hover:text-blue-400 transition-colors duration-150" // Reduced from 200
                   aria-label={link.label}
                 >
                   <link.icon size={18} />
                 </motion.a>
               ))}
             </div>
+
+            {/* Mobile Contact Button */}
+            <div className="px-4 py-3">
+              <Link
+                to="/contact"
+                className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-medium bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 transition-all duration-150 shadow-md" // Reduced from 200
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Hire Me
+              </Link>
+            </div>
           </div>
         </motion.div>
-      </nav>
-    </motion.header>
+      </header>
+    </>
   );
 };
 
