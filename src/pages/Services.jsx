@@ -7,59 +7,74 @@ const Services = () => {
     {
       icon: Code,
       title: 'Full Stack Development',
-      description: 'Complete end-to-end website development with modern frameworks, clean architecture, and production-ready performance.',
+      description: 'Complete web application development using modern MERN stack with scalable architecture and production-ready performance.',
       features: [
-        'React Frontend',
-        'Node.js / Express Backend',
-        'MongoDB Database Integration',
-        'Custom APIs'
+        'React (Vite) Frontend',
+        'Node.js & Express Backend',
+        'MongoDB Database',
+        'REST API Development'
       ],
       color: 'from-blue-500 to-blue-600',
     },
     {
-      icon: Bot,
-      title: 'Discord Bot Development',
-      description: 'Advanced, customizable Discord bots built for communities, esports, management, and automation.',
+      icon: Smartphone,
+      title: 'Cross-Platform App Development',
+      description: 'Build high-performance mobile apps for Android and iOS using React Native, Expo and NativeWind.',
       features: [
-        'Custom Commands & Systems',
-        'Moderation & Anti-Spam Tools',
-        'Scrims / Tournament Automation'
+        'React Native (Expo)',
+        'NativeWind Styling',
+        'Android & iOS Support',
+        'App Performance Optimization'
       ],
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-green-500 to-green-600',
     },
     {
       icon: Server,
       title: 'Backend Development',
-      description: 'Secure, scalable backend systems with optimized APIs, authentication, and smooth data flow.',
+      description: 'Secure and scalable backend systems with clean architecture, authentication and efficient data handling.',
       features: [
         'API Development',
-        'Authentication & Authorization',
-        'Server-Side Logic & Integrations'
+        'Authentication Systems',
+        'Server Logic & Integration',
+        'Performance Optimization'
       ],
       color: 'from-indigo-500 to-indigo-600',
     },
     {
       icon: Database,
       title: 'Database Engineering',
-      description: 'Efficient database design and optimization for fast queries, reliability, and structured data handling.',
+      description: 'Efficient database design with optimized queries and structured data handling for high performance.',
       features: [
         'MongoDB & Mongoose',
+        'Database Design',
         'Query Optimization',
-        'Data Structuring & Migration'
+        'Data Structuring'
       ],
       color: 'from-yellow-500 to-yellow-600',
     },
     {
-      icon: Paintbrush,
+      icon: Palette,
       title: 'Frontend Development',
-      description: 'Beautiful, modern, and responsive user interfaces with smooth interactions and pixel-perfect design.',
+      description: 'Modern, responsive and visually appealing UI with smooth user experience and optimized performance.',
       features: [
-        'React & Component Architecture',
-        'Responsive Layouts',
-        'Tailwind CSS & Modern Styling',
-        'UI Performance Optimization'
+        'React (Vite)',
+        'Tailwind CSS',
+        'Responsive Design',
+        'UI/UX Optimization'
       ],
       color: 'from-pink-500 to-pink-600',
+    },
+    {
+      icon: Settings,
+      title: 'Custom Web Solutions',
+      description: 'Custom dashboards, admin panels and automation systems tailored to your business or project needs.',
+      features: [
+        'Admin Dashboards',
+        'Custom Features',
+        'Automation Systems',
+        'Scalable Architecture'
+      ],
+      color: 'from-purple-500 to-purple-600',
     },
   ];
 

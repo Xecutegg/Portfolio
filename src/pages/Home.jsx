@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Github, Linkedin, MessageCircle, Instagram, Code, Bot, Server, Database, Paintbrush, User, Info, Calendar, MapPin, Globe, Briefcase, Phone, Mail } from 'lucide-react';
 
-const IMAGE_SRC = "logo2.png";
+const IMAGE_SRC = "black.jpeg";
 
 const Home = () => {
   const roles = [
-    'Human',
-    'Full Stack Developer',
-    'Discord Bot Developer',
+    'Developer',
+    'Web Developer',
+    'App Developer',
     'Founder Of One Dream Esports',
   ];
 
@@ -23,7 +23,7 @@ const Home = () => {
     { label: 'Real Name', value: 'Souma Goswami', icon: User },
     { label: 'Aka', value: 'Xecute', icon: Info },
     { label: 'Gender', value: 'Male', icon: User },
-    { label: 'Age', value: '22 Years', icon: Calendar },
+    { label: 'Age', value: '24 Years', icon: Calendar },
     { label: 'Email', value: 'soumagoswami2002@gmail.com', icon: Mail },
     { label: 'Languages', value: 'Hindi, English, Bengali', icon: Globe },
   ];
@@ -54,7 +54,7 @@ const Home = () => {
   return (
     <section className="bg-gray-900 min-h-screen flex items-center justify-center pt-25 pb-10 px-4 sm:px-6">
       <div className="container mx-auto max-w-7xl">
-        {/* Hero Section */}
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -112,7 +112,7 @@ const Home = () => {
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <a
-                href="#services"
+                href="/services"
                 className="inline-flex items-center justify-center px-6 md:px-8 py-2 md:py-3 border border-blue-400 text-blue-400 font-semibold rounded-full hover:bg-blue-400/10 transition-all duration-200 group"
               >
                 My Services
