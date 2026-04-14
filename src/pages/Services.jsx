@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Code, Palette, Trophy, MessageCircle, Video, Paintbrush, ArrowRight, Server, Bot, Database } from 'lucide-react';
+import { Code, Palette, Trophy, Smartphone, Settings, MessageCircle, Video, Paintbrush, ArrowRight, Server, Bot, Database } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -12,13 +12,13 @@ const Services = () => {
         'React (Vite) Frontend',
         'Node.js & Express Backend',
         'MongoDB Database',
-        'REST API Development'
+        'API Development'
       ],
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-lime-500 to-lime-500',
     },
     {
       icon: Smartphone,
-      title: 'Cross-Platform App Development',
+      title: 'App Development',
       description: 'Build high-performance mobile apps for Android and iOS using React Native, Expo and NativeWind.',
       features: [
         'React Native (Expo)',
@@ -26,7 +26,7 @@ const Services = () => {
         'Android & iOS Support',
         'App Performance Optimization'
       ],
-      color: 'from-green-500 to-green-600',
+      color: 'from-lime-500 to-lime-500',
     },
     {
       icon: Server,
@@ -38,19 +38,7 @@ const Services = () => {
         'Server Logic & Integration',
         'Performance Optimization'
       ],
-      color: 'from-indigo-500 to-indigo-600',
-    },
-    {
-      icon: Database,
-      title: 'Database Engineering',
-      description: 'Efficient database design with optimized queries and structured data handling for high performance.',
-      features: [
-        'MongoDB & Mongoose',
-        'Database Design',
-        'Query Optimization',
-        'Data Structuring'
-      ],
-      color: 'from-yellow-500 to-yellow-600',
+      color: 'from-lime-500 to-lime-500',
     },
     {
       icon: Palette,
@@ -62,19 +50,7 @@ const Services = () => {
         'Responsive Design',
         'UI/UX Optimization'
       ],
-      color: 'from-pink-500 to-pink-600',
-    },
-    {
-      icon: Settings,
-      title: 'Custom Web Solutions',
-      description: 'Custom dashboards, admin panels and automation systems tailored to your business or project needs.',
-      features: [
-        'Admin Dashboards',
-        'Custom Features',
-        'Automation Systems',
-        'Scalable Architecture'
-      ],
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-lime-500 to-lime-500',
     },
   ];
 
@@ -114,22 +90,19 @@ const Services = () => {
   };
 
   return (
-    <section className="bg-gray-900 min-h-screen pt-20 pb-12 px-4 sm:px-6">
+    <section className="bg-zinc-900 min-h-screen pt-20 pb-12 px-4 sm:px-6">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 lg:mb-20 mt-10"
+          className="text-center mb-12 lg:mb-20 mt-[-55px]"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
-            <span className="text-blue-400 text-sm font-medium">What I Offer</span>
-          </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 lg:mb-6">
-            Professional <span className="text-blue-400">Services</span>
+            Professional <span className="text-lime-500">Services</span>
           </h1>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl lg:max-w-3xl mx-auto px-4">
+          <p className="text-zinc-400 text-base sm:text-lg max-w-2xl lg:max-w-3xl mx-auto px-4">
             Comprehensive digital solutions tailored to your needs, from web development to custom integrations.
           </p>
         </motion.div>
@@ -139,7 +112,7 @@ const Services = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 mb-16"
         >
           {services.map((service, index) => (
             <motion.div
@@ -149,16 +122,16 @@ const Services = () => {
               className="relative h-full"
             >
               {/* Main Card */}
-              <div className="relative h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 p-6 sm:p-7 lg:p-8 flex flex-col overflow-hidden">
+              <div className="relative h-full bg-zinc-900/40 rounded-2xl border border-zinc-700/50 p-6 sm:p-7 lg:p-8 flex flex-col overflow-hidden hover:border-lime-500/50 transition-all duration-300">
                 {/* Colored Top Border */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color}`}></div>
 
                 {/* Icon Section */}
                 <div className="relative flex items-start justify-between mb-6 lg:mb-7">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${service.color}`}>
-                    <service.icon size={28} className="text-white" />
+                  <div className="p-3 rounded-xl bg-lime-500/15 border border-lime-500/30">
+                    <service.icon size={28} className="text-lime-500" />
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-blue-400/60 bg-blue-400/10 px-2 py-1 rounded-lg">
+                  <div className="text-xs sm:text-sm font-bold text-lime-500/60 bg-lime-500/10 px-2 py-1 rounded-lg">
                     0{index + 1}
                   </div>
                 </div>
@@ -169,7 +142,7 @@ const Services = () => {
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-400 text-sm sm:text-base mb-6 lg:mb-7 leading-relaxed">
+                  <p className="text-zinc-400 text-sm sm:text-base mb-6 lg:mb-7 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -182,8 +155,8 @@ const Services = () => {
                         variants={featureItemVariants}
                         className="flex items-start text-sm"
                       >
-                        <div className="w-2 h-2 rounded-full bg-blue-400 mr-3 mt-1.5 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm sm:text-base">{feature}</span>
+                        <div className="w-2 h-2 rounded-full bg-lime-500 mr-3 mt-1.5 flex-shrink-0" />
+                        <span className="text-zinc-300 text-sm sm:text-base">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -208,12 +181,12 @@ const Services = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-4 rounded-xl bg-gray-800/30 border border-gray-700/30"
+              className="text-center p-4 rounded-xl bg-zinc-900/30 border border-zinc-700/30 hover:border-lime-500/40 transition-all duration-300"
             >
-              <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">
+              <div className="text-2xl sm:text-3xl font-bold text-lime-500 mb-1">
                 {stat.value}
               </div>
-              <div className="text-sm sm:text-base text-gray-400">
+              <div className="text-sm sm:text-base text-zinc-400">
                 {stat.label}
               </div>
             </div>
@@ -227,23 +200,23 @@ const Services = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-18"
         >
-          <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl border border-gray-700/50 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 sm:p-8 lg:p-12">
+          <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl border border-zinc-700/50 bg-zinc-900/40 p-6 sm:p-8 lg:p-12 hover:border-lime-500/30 transition-all duration-300">
             <div className="text-center max-w-2xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 lg:mb-6">
-                Ready to bring your <span className="text-blue-400">project to life</span>?
+                Ready to bring your <span className="text-lime-500">project to life</span>?
               </h2>
-              <p className="text-gray-400 text-base sm:text-lg mb-6 lg:mb-8">
+              <p className="text-zinc-400 text-base sm:text-lg mb-6 lg:mb-8">
                 Let's collaborate to create something exceptional with cutting-edge technology and innovative solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="block">
-                  <button className="w-full sm:w-auto px-6 sm:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-xl lg:rounded-2xl flex items-center justify-center gap-2">
+                  <button className="w-full sm:w-auto px-6 sm:px-8 py-3 lg:py-4 bg-lime-500 hover:bg-lime-600 text-black font-semibold rounded-xl lg:rounded-2xl flex items-center justify-center gap-2 transition-all duration-300 group hover:scale-105">
                     Get Started Today
-                    <ArrowRight size={18} />
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
                 </Link>
                 <Link to="/portfolio" className="block">
-                  <button className="w-full sm:w-auto px-6 sm:px-8 py-3 lg:py-4 bg-gray-800/50 border border-gray-700 text-gray-300 font-semibold rounded-xl lg:rounded-2xl">
+                  <button className="w-full sm:w-auto px-6 sm:px-8 py-3 lg:py-4 bg-zinc-800 border border-zinc-700 text-zinc-300 font-semibold rounded-xl lg:rounded-2xl hover:bg-lime-500 hover:text-black hover:border-lime-500 transition-all duration-300">
                     View My Work
                   </button>
                 </Link>

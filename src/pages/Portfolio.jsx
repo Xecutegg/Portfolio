@@ -18,7 +18,6 @@ const Portfolio = () => {
       category: 'Web Development',
       featured: true,
     },
-
     {
       id: 2,
       title: 'SecureX',
@@ -103,8 +102,8 @@ const Portfolio = () => {
   };
 
   return (
-    <section className="min-h-screen pt-16 md:pt-24 pb-12 px-4 sm:px-6">
-      <div className="container mx-auto max-w-7xl mt-10">
+    <section className="min-h-screen bg-zinc-900 pt-16 md:pt-24 pb-12 px-4 sm:px-6">
+      <div className="container mx-auto max-w-7xl mt-[-45px]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -113,9 +112,9 @@ const Portfolio = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4">
-            My <span className="text-blue-400">Portfolio</span>
+            My <span className="text-lime-500">Portfolio</span>
           </h1>
-          <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Explore my portfolio showcasing web development projects, creative designs, and innovative solutions.
           </p>
         </motion.div>
@@ -135,8 +134,8 @@ const Portfolio = () => {
                 setCurrentProject(0);
               }}
               className={`px-4 py-2 text-sm md:text-base rounded-full transition-all duration-200 ${activeCategory === category
-                  ? 'bg-blue-400 text-slate-900 font-medium'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  ? 'bg-lime-500 text-black font-medium'
+                  : 'bg-zinc-900 text-zinc-300 hover:bg-zinc-800'
                 }`}
             >
               {category}
@@ -164,35 +163,35 @@ const Portfolio = () => {
                   className="space-y-4 md:space-y-6"
                 >
                   <div className="flex items-center space-x-3 md:space-x-4">
-                    <span className="text-blue-400 text-base md:text-lg font-bold">
+                    <span className="text-lime-500 text-base md:text-lg font-bold">
                       {String(filteredProjects[currentProject].id).padStart(2, '0')}
                     </span>
-                    <div className="h-px bg-blue-400 flex-1" />
-                    <span className="text-xs md:text-sm text-gray-400 bg-gray-800 px-2 md:px-3 py-1 rounded-full">
+                    <div className="h-px bg-lime-500 flex-1" />
+                    <span className="text-xs md:text-sm text-zinc-400 bg-zinc-900 px-2 md:px-3 py-1 rounded-full border border-zinc-700">
                       {filteredProjects[currentProject].category}
                     </span>
                     {filteredProjects[currentProject].featured && (
-                      <span className="text-xs md:text-sm bg-blue-400 text-slate-900 px-2 md:px-3 py-1 rounded-full font-medium">
+                      <span className="text-xs md:text-sm bg-lime-500 text-black px-2 md:px-3 py-1 rounded-full font-medium">
                         Featured
                       </span>
                     )}
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                     {filteredProjects[currentProject].title}
                   </h2>
 
-                  <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                  <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
                     {filteredProjects[currentProject].longDescription}
                   </p>
 
                   <div className="space-y-3 md:space-y-4">
-                    <h3 className="text-base md:text-lg font-semibold text-blue-400">Technologies Used:</h3>
+                    <h3 className="text-base md:text-lg font-semibold text-lime-500">Technologies Used:</h3>
                     <div className="flex flex-wrap gap-2">
                       {filteredProjects[currentProject].technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-2 md:px-3 py-1 bg-gray-800 border border-gray-700 rounded-full text-xs md:text-sm"
+                          className="px-2 md:px-3 py-1 bg-zinc-800 border border-zinc-700 rounded-full text-xs md:text-sm text-zinc-300"
                         >
                           {tech}
                         </span>
@@ -207,7 +206,7 @@ const Portfolio = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-blue-400 text-slate-900 font-medium rounded-full hover:bg-blue-300 transition-colors duration-200 group"
+                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-lime-500 text-black font-medium rounded-full hover:bg-lime-600 transition-all duration-200 group"
                     >
                       <Eye size={16} className="mr-2" />
                       Live Preview
@@ -223,7 +222,7 @@ const Portfolio = () => {
               variants={itemVariants}
               className="relative order-1 lg:order-2 h-64 sm:h-80 md:h-96 lg:h-auto"
             >
-              <div className="relative h-full overflow-hidden rounded-xl bg-gray-800 border border-gray-700">
+              <div className="relative h-full overflow-hidden rounded-xl bg-zinc-900 border border-zinc-700">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={filteredProjects[currentProject].id}
@@ -244,7 +243,7 @@ const Portfolio = () => {
                       onClick={prevProject}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-1 sm:p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-green-400 hover:text-slate-900 transition-all duration-200"
+                      className="p-1 sm:p-2 bg-zinc-900/80 backdrop-blur-sm rounded-full text-zinc-300 hover:bg-lime-500 hover:text-black transition-all duration-200"
                       aria-label="Previous project"
                     >
                       <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
@@ -254,7 +253,7 @@ const Portfolio = () => {
                       onClick={nextProject}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-1 sm:p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-green-400 hover:text-slate-900 transition-all duration-200"
+                      className="p-1 sm:p-2 bg-zinc-900/80 backdrop-blur-sm rounded-full text-zinc-300 hover:bg-lime-500 hover:text-black transition-all duration-200"
                       aria-label="Next project"
                     >
                       <ChevronRight size={20} className="sm:w-6 sm:h-6" />
@@ -269,7 +268,7 @@ const Portfolio = () => {
                       <button
                         key={index}
                         onClick={() => setCurrentProject(index)}
-                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${index === currentProject ? 'bg-blue-400' : 'bg-white/30'
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${index === currentProject ? 'bg-lime-500' : 'bg-white/30 hover:bg-white/50'
                           }`}
                         aria-label={`Go to project ${index + 1}`}
                       />
@@ -283,12 +282,12 @@ const Portfolio = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-12 md:py-16 bg-gray-800 rounded-xl border border-gray-700"
+            className="text-center py-12 md:py-16 bg-zinc-900 rounded-xl border border-zinc-700"
           >
-            <h3 className="text-xl md:text-2xl font-medium text-gray-300 mb-2">
+            <h3 className="text-xl md:text-2xl font-medium text-zinc-300 mb-2">
               No projects found in this category
             </h3>
-            <p className="text-gray-500 text-sm md:text-base">
+            <p className="text-zinc-400 text-sm md:text-base">
               Check back later or view other categories
             </p>
           </motion.div>
@@ -303,7 +302,7 @@ const Portfolio = () => {
             className="space-y-6 md:space-y-8"
           >
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">
-              More <span className="text-blue-400">Projects</span>
+              More <span className="text-lime-500">Projects</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -314,7 +313,9 @@ const Portfolio = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className={`bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-blue-400 transition-all duration-300 group cursor-pointer ${currentProject === index ? 'ring-2 ring-blue-400' : ''
+                  className={`bg-zinc-900 rounded-xl overflow-hidden border transition-all duration-300 group cursor-pointer ${currentProject === index
+                      ? 'border-lime-500 ring-1 ring-lime-500'
+                      : 'border-zinc-700 hover:border-lime-500'
                     }`}
                   onClick={() => setCurrentProject(index)}
                 >
@@ -324,7 +325,7 @@ const Portfolio = () => {
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                       <span className="text-white text-sm font-medium">
                         Click to view details
                       </span>
@@ -332,32 +333,32 @@ const Portfolio = () => {
                   </div>
                   <div className="p-4 md:p-6">
                     <div className="flex items-center justify-between mb-2 md:mb-3">
-                      <span className="text-blue-400 text-xs md:text-sm font-medium">
+                      <span className="text-lime-500 text-xs md:text-sm font-medium">
                         {project.category}
                       </span>
                       {project.featured && (
-                        <span className="px-2 py-1 bg-blue-400 text-slate-900 text-xs font-bold rounded-full">
+                        <span className="px-2 py-1 bg-lime-500 text-black text-xs font-bold rounded-full">
                           Featured
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2 group-hover:text-blue-400 transition-colors duration-200">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2 text-white group-hover:text-lime-500 transition-colors duration-200">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                    <p className="text-zinc-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {project.technologies.slice(0, 3).map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-0.5 bg-gray-700 text-xs rounded-full"
+                          className="px-2 py-0.5 bg-zinc-800 text-zinc-300 text-xs rounded-full"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="px-2 py-0.5 bg-gray-700 text-xs rounded-full">
+                        <span className="px-2 py-0.5 bg-zinc-800 text-zinc-300 text-xs rounded-full">
                           +{project.technologies.length - 3}
                         </span>
                       )}
