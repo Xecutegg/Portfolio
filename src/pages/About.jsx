@@ -112,7 +112,7 @@ const About = () => {
   ];
 
   const personalInfo = [
-    { label: "Name", value: "Souma Goswami", icon: User },
+    { label: "Name", value: "Sanju Goswami", icon: User },
     { label: "Aka", value: "Xecute", icon: Info },
     { label: "Role", value: "Founder Of One Dream Esports", icon: Info },
     { label: "Gender", value: "Male", icon: User },

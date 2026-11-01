@@ -75,14 +75,14 @@ const Header = () => {
             <div className="relative">
               <img
                 src="logo2.png"
-                alt="Souma Goswami"
+                alt="Sanju Goswami"
                 className="w-9 h-9 sm:w-10 sm:h-10 object-cover rounded-full border-2 border-lime-500 transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 rounded-full border-2 border-lime-500/30 animate-pulse"></div>
             </div>
             <div className="ml-2 sm:ml-3">
               <h1 className="text-sm sm:text-base font-bold text-white group-hover:text-lime-500 transition-colors duration-300">
-                Souma Goswami
+                Sanju Goswami
               </h1>
               <p className="text-[10px] sm:text-xs text-lime-500 font-medium leading-none">
                 Software Developer

@@ -20,7 +20,7 @@ const Home = () => {
   ];
 
   const personalInfo = [
-    { label: 'Real Name', value: 'Souma Goswami', icon: User },
+    { label: 'Real Name', value: 'Sanju Goswami', icon: User },
     { label: 'Aka', value: 'Xecute', icon: Info },
     { label: 'Gender', value: 'Male', icon: User },
     { label: 'Age', value: '24 Years', icon: Calendar },
@@ -99,7 +99,7 @@ const Home = () => {
               variants={itemVariants}
               className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-xl"
             >
-              I'm Souma Goswami, also known as Xecute — a full-stack web developer and Discord bot developer.
+              I'm Sanju Goswami, also known as Xecute — a full-stack web developer and Discord bot developer.
               I specialize in building powerful web applications and advanced Discord bots using modern technologies.
               Passionate about clean code, creative solutions, and delivering real value through development.
             </motion.p>
@@ -156,7 +156,7 @@ const Home = () => {
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-lime-500">
                 <img
                   src={IMAGE_SRC}
-                  alt="Souma Goswami"
+                  alt="Sanju Goswami"
                   className="w-full h-full object-contain object-center"
                 />
               </div>
@@ -208,7 +208,7 @@ const Home = () => {
               className="bg-zinc-900/30 p-6 rounded-xl border border-zinc-700 mb-8 hover:border-lime-500/50 transition-all duration-300"
             >
               <p className="text-zinc-300 leading-relaxed">
-                I'm <span className="text-lime-500 font-semibold">Souma Goswami</span>, also known as <span className="text-lime-500 font-semibold">Xecute</span> — a passionate full-stack web developer based in West Bengal, India. I specialize in building modern, scalable, and high-performance websites with clean code and smooth user experience at the core.
+                I'm <span className="text-lime-500 font-semibold">Sanju Goswami</span>, also known as <span className="text-lime-500 font-semibold">Xecute</span> — a passionate full-stack web developer based in West Bengal, India. I specialize in building modern, scalable, and high-performance websites with clean code and smooth user experience at the core.
               </p>
 
               <p className="text-zinc-300 mt-4 leading-relaxed">
