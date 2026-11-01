@@ -68,7 +68,7 @@ const Home = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              Souma <span className="text-lime-500">Goswami</span>
+              Sanju <span className="text-lime-500">Goswami</span>
             </motion.h1>
 
             <motion.div variants={itemVariants} className="space-y-2">
